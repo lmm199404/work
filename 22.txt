@@ -31,4 +31,4 @@ mybatis应用程序根据xml配置文件创建SqlSessionFactory，SqlSessionFact
 所需要的所有方法，可以通过SqlSession实例直接运行映射的SQL语句，完成对数据的增删改查和事务提交
 等，用完之后关闭SqlSession
 
-55555555
+6345242
