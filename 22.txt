@@ -1,0 +1,33 @@
+springmvc工作原理：
+
+1、客户端发送http请求给web应用服务器，web服务器对http请求进行解析，如果匹配DispatcherServlet
+   
+   的请求映射路径（在web.xml中指定），web容器将请求转交给DispatcherServlet
+
+2、DispatcherSerlet接受到这个请求之后将根据请求的信息以及HandlerMapping的配置找到处理请求的
+
+   处理器（Handle）
+
+3、DispatcherServlet根据HandlerMapping找到对应的Handle,将处理权交给Handle（Handler将具体的
+
+   处理进行封装），再由具体的HandlerAdapter对Handler进行具体的调用
+
+4、Handler对数据处理完成之后将返回一个ModelAndView()对象给DispatcherServlet
+
+5、Handler返回的ModelAndView()只是一个逻辑视图，并不是一个正式的视图，DispatcherServlet通过
+
+   ViewResolver将逻辑视图转化为真正地视图View
+
+6、Dispatcher通过model解析出ModelAndView()中的参数进行解析最终展现出完整的view并返回给客户端
+
+ 客户端请求提交到DispatcherServlet由DispatcherServlet控制器查询一个或多个HandlerMapping，
+找到处理请求的Controller DispatcherServlet将请求提交到Controller Controller调用业务逻辑处理
+之后，返回ModelAndView DispatcherServlet查询一个或多个ViewResolve视图解析器，找到ModelAndVew
+指定的视图负责将结果显示到客户端
+
+
+mybatis应用程序根据xml配置文件创建SqlSessionFactory，SqlSessionFactory再根据配置，配置来源于
+两个地方，一处使配置文件，一处是java代码的注解，获取一个sqlSession,SqlSession包含了执行sql
+所需要的所有方法，可以通过SqlSession实例直接运行映射的SQL语句，完成对数据的增删改查和事务提交
+等，用完之后关闭SqlSession
+
